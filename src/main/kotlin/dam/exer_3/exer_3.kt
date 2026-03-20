@@ -32,7 +32,6 @@ class Pipeline {
         val stage2 = stages.find { it.first == name2 }?.second
 
         if (stage1 != null && stage2 != null) {
-
             val composedTransform: (List<String>) -> List<String> = { input -> stage2(stage1(input)) }
             addStage(newStageName, composedTransform)
         }
